@@ -1,0 +1,20 @@
+{
+    "entries": [ 
+        {
+            "date-time": "date-time",
+            "text": "sample journal entry",
+            "v-score": 1.5,
+            "a-score": 2.3,
+            "emotions": [
+                "angry",
+                "happy",
+                "sad"
+            ]
+        }
+    ],
+    
+    "settings": {
+        "dark-mode": false,
+        "large-text": false
+    }
+}
