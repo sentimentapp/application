@@ -2,10 +2,13 @@
   <div>
     <h1>Dashboard</h1>
     <router-link to="/statistics">Statistics</router-link>
+    <br>
+    <router-link to="/storage">Storage</router-link>
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'Dashboard',
 }
