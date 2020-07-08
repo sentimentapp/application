@@ -15,7 +15,8 @@ dataInitialization().then(result =>{
     new Vue({
       // Pushes data from the returned object into global variables
       data: {
-        entries: result["entries"]
+        entries: result["entries"],
+        settings: result["settings"]
       },
       router,
       render: h => h(App),

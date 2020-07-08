@@ -2,7 +2,7 @@
 import { Plugins } from "@capacitor/core"
 const { Storage } = Plugins
 
-// All variables
+// All variables are stored here. It is referenced in order to get the key and data type for local storage
 var appData = {"entries": [], "settings": {}}
 
 // Saves a key-value pair to local storage with Capacitor
@@ -36,6 +36,7 @@ function createLocalStorage(type, localStorageKey) {
   return new Proxy( type, changeHandler )
 }
 
+// Initalizes a single variable from local storage
 function initializeSingleVariable(variableKey, variableValue) {
   // Returns a promise to be waited upon
   return Storage.get({ key: variableKey }).then((localData) => {
@@ -56,7 +57,7 @@ function initializeSingleVariable(variableKey, variableValue) {
   })
 }
 
-
+// Handles the logic for initalizing all variables from local storage
 function dataInitialization() {
   // Array to store promises
   let promises = []
