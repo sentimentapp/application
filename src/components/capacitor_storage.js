@@ -36,11 +36,20 @@ function createLocalStorage(type, localStorageKey) {
 // Creates needed data
 let entries
 
-async function dataInitialization() {
-  // Pull entries into database
-  let storedEntries = JSON.parse((await Storage.get({ key: "entries" })).value)
-  entries = createLocalStorage(storedEntries, "entries")
-  console.log("Completed Data Hydration")
+function dataInitialization() {
+  // Returns a promise to be waited upon
+  return Storage.get({ key: "entries" }).then((value) => {
+    // Parrses stored entries
+    let storedEntries = JSON.parse(value.value)
+    // Creates array proxy
+    entries = createLocalStorage(storedEntries, "entries")
+    console.log("Completed Data Hydration")
+    return true
+    
+    // Watches for an error
+  }).catch((error) => { 
+    console.error(error)
+  })
 }
 
 // Exports data
