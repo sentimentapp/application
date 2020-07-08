@@ -30,21 +30,18 @@ function createLocalStorage(type, localStorageKey) {
     }
   }
 
-  // Returns an array
-  if (type == "array") {
-    return new Proxy( [], changeHandler )
-  }
-
-  // Returns a javascript object (dictionary)
-  else if (type == "object") {
-    return new Proxy( {}, changeHandler );
-  }
-
-  // Returns an error for incorrect datatype
-  else {
-    console.error("Invalid data type passed to the createLocalStorage() function. Supported data types are objects and arrays")
-    return null
-  }
+  return new Proxy( type, changeHandler )
 }
 
-export let proxyToArray = createLocalStorage("array", "proxyToArray")
+// Creates needed data
+let entries
+
+async function dataInitialization() {
+  // Pull entries into database
+  let storedEntries = JSON.parse((await Storage.get({ key: "entries" })).value)
+  entries = createLocalStorage(storedEntries, "entries")
+  console.log("Completed Data Hydration")
+}
+
+// Exports data
+export { entries, dataInitialization }
