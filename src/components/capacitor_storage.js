@@ -2,6 +2,9 @@
 import { Plugins } from "@capacitor/core"
 const { Storage } = Plugins
 
+// All variables
+var appData = {"entries": [], "settings": {}}
+
 // Saves a key-value pair to local storage with Capacitor
 async function saveToLocalStorage (key, value) {
   // Transforms data into a String
@@ -33,24 +36,45 @@ function createLocalStorage(type, localStorageKey) {
   return new Proxy( type, changeHandler )
 }
 
-// Creates needed data
-let entries
-
-function dataInitialization() {
+function initializeSingleVariable(variableKey, variableValue) {
   // Returns a promise to be waited upon
-  return Storage.get({ key: "entries" }).then((value) => {
+  return Storage.get({ key: variableKey }).then((localData) => {
     // Parrses stored entries
-    let storedEntries = JSON.parse(value.value)
+    let parsedLocalData = JSON.parse(localData.value)
     // Creates array proxy
-    entries = createLocalStorage(storedEntries, "entries")
-    console.log("Completed Data Hydration")
+    appData[variableKey] = createLocalStorage(parsedLocalData, variableKey)
+    console.log("Completed data hydration for " + variableKey)
     return true
     
-    // Watches for an error
-  }).catch((error) => { 
-    console.error(error)
+  // Watches for no present data
+  }).catch(() => { 
+    console.warn("No data at requested entry. Creating new local storage entry for requested data")
+    // Creates new data entry based on passed data
+    appData[variableKey] = createLocalStorage(variableValue, variableKey)
+    console.log("Completed data hydration for " + variableKey)
+    return true
   })
 }
 
-// Exports data
-export { entries, dataInitialization }
+
+function dataInitialization() {
+  // Array to store promises
+  let promises = []
+
+  // Loops through potential array values in object
+  for (let [key, value] of Object.entries(appData)) {
+    promises.push(initializeSingleVariable(key, value))
+  }
+  
+  // Checks to make sure all promises for data have been fulfilled
+  return Promise.all(promises)
+  .then(() => {
+    return appData
+  })
+  .catch((e) => {
+    console.error(e)
+  });
+}
+
+// Exports data 
+export { dataInitialization }
