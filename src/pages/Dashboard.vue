@@ -4,6 +4,8 @@
     <router-link to="/statistics">Statistics</router-link>
     <br>
     <router-link to="/storage">Storage</router-link>
+    <br>
+    <router-link to="/capacitor-storage">Temporary Workspace for Capacitor Storage</router-link>
   </div>
 </template>
 
