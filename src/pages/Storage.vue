@@ -15,27 +15,22 @@
 </template>
 
 <script>
-
 import { Plugins } from "@capacitor/core"
 const { Storage } = Plugins
-
 export default {
   name: 'Storage',
   data: () => ({
     entry: '',
-    entries: [],
+    entries: []
   }),
   methods: {
     async addEntry () {
       this.entries.push(this.entry)
-
       var entriesJson = JSON.stringify(this.entries);
-
       await Storage.set({
         key: 'journal-entries',
         value: entriesJson
       })
-
       const entriesParsed = await Storage.get({ key: 'journal-entries' })
       this.entries = JSON.parse(entriesParsed.value)
       
@@ -53,9 +48,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 #body {
   display: block;
 }
-
 </style>

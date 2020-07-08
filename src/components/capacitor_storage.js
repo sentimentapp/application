@@ -21,7 +21,6 @@ function createLocalStorage(type, localStorageKey) {
   const changeHandler = {
     // Runs when a value is changed
     set(target, property, value) {
-      console.log('pushed value to array')
       // Actually runs the change
       target[property] = value;
       // Saves the value to local storage 
@@ -31,18 +30,21 @@ function createLocalStorage(type, localStorageKey) {
     }
   }
 
+  // Returns an array
   if (type == "array") {
     return new Proxy( [], changeHandler )
   }
 
+  // Returns a javascript object (dictionary)
   else if (type == "object") {
     return new Proxy( {}, changeHandler );
   }
 
+  // Returns an error for incorrect datatype
   else {
     console.error("Invalid data type passed to the createLocalStorage() function. Supported data types are objects and arrays")
     return null
   }
 }
 
-export let proxyToArray = createLocalStorage("array", "entries")
+export let proxyToArray = createLocalStorage("array", "proxyToArray")
