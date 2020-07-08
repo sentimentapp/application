@@ -6,35 +6,33 @@
     <input type="text" v-model="entry">
     <button @click="updateEntries()">Add</button>
     <br>
-    <p>{{entries}}</p>
+    <p>{{ displayedEntries }}</p>
     <br>
     <button @click="changeEntry()">Change Entry</button>
-    <button @click="deleteEntry()">Change Entry</button>
+    <button @click="deleteEntry()">Delete Entry</button>
   </div>
 </template>
 
 <script>
 
-import { proxyToArray } from "@/components/capacitor_storage.js"
+import { entries } from "@/components/capacitor_storage.js"
 
 export default {
   name: 'CapacitorStorage',
   data: () => ({
     entry: '',
-    entries: proxyToArray
+    displayedEntries: entries 
   }),
   methods: {
     updateEntries () {
-        proxyToArray.push(this.entry)
-        this.entries = proxyToArray
+        entries.push(this.entry)
     },
     changeEntry () {
-        proxyToArray[0] = "joe"
-        this.entries = proxyToArray
+        this.$set(entries, 0, "joe")
+        // this.$forceUpdate();
     },
     deleteEntry () {
-        proxyToArray.shift()
-        this.entries = proxyToArray
+        entries.shift()
     }
   }
 }
