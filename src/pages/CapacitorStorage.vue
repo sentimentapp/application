@@ -9,7 +9,7 @@
     <p>{{entries}}</p>
     <br>
     <button @click="changeEntry()">Change Entry</button>
-    <button @click="deleteEntry()">Delete Entry</button>
+    <button @click="deleteEntry()">Change Entry</button>
   </div>
 </template>
 
