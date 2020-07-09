@@ -5,7 +5,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build && npx cap copy",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build-sass": "node-sass --omit-source-map-url src/styles/styles.scss src/styles/styles.css",
+    "watch-sass": "npm run build-sass -- --watch"
   },
   "dependencies": {
     "@capacitor/cli": "^2.2.1",
@@ -21,8 +23,10 @@
     "@vue/cli-plugin-eslint": "^4.4.0",
     "@vue/cli-service": "^4.4.0",
     "babel-eslint": "^10.1.0",
+    "bulma": "^0.9.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "node-sass": "^4.14.1",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {

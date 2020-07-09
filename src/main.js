@@ -2,6 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 
+// Imports custom styles
+import '@/styles/styles.css'
+
 Vue.config.productionTip = false
 
 // Imports data initilzation function to be run at app start
@@ -23,3 +26,4 @@ dataInitialization().then(result =>{
     }).$mount('#app')
   }
 })
+
