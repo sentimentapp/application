@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Dashboard from '@/pages/Dashboard'
 import Statistics from '@/pages/Statistics'
+import Settings from '@/pages/Settings'
 import Storage from '@/pages/Storage'
 import CapacitorStorage from '@/pages/CapacitorStorage'
 
@@ -28,7 +29,12 @@ const router = new Router({
       path: '/capacitor-storage',
       name: 'CapacitorStorage',
       component: CapacitorStorage
-  }
+  },
+  {
+    path: '/settings',
+    name: 'Settings',
+    component: Settings
+}
   ]
 })
 

@@ -1,18 +1,37 @@
 @charset "utf-8";
 
 // Import a Google Font
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap');
 
 // Update Bulma's global variables
 $family-sans-serif: "Poppins", sans-serif;
 
-// Import only what you need from Bulma
-@import "../../node_modules/bulma/sass/utilities/_all.sass";
-@import "../../node_modules/bulma/sass/base/_all.sass";
-@import "../../node_modules/bulma/sass/elements/button.sass";
-@import "../../node_modules/bulma/sass/elements/container.sass";
-@import "../../node_modules/bulma/sass/elements/title.sass";
-@import "../../node_modules/bulma/sass/form/_all.sass";
-@import "../../node_modules/bulma/sass/components/navbar.sass";
-@import "../../node_modules/bulma/sass/layout/hero.sass";
-@import "../../node_modules/bulma/sass/layout/section.sass";
+// Creating custom variables
+$gradient: linear-gradient(267.4deg, #AFCFEC 1.64%, #AFECE7 101.09%);
+$dark: #25283D;
+$light: rgba(37, 40, 61, 0.05); 
+
+// Defining bulma document colors
+$body-background-color: #F7F9FF;
+
+// Import Bulma
+@import "../../node_modules/bulma/bulma.sass";
+
+// Changing variables once bulma has been imported
+
+// Single variables
+.is-gradient {
+    background: $gradient;
+}
+
+.has-text-weight-bold {
+    font-weight: 900 !important;
+}
+
+// Components
+.card {
+    background: #FFFFFF;
+    box-shadow: 0px 1px 50px rgba(0, 0, 0, 0.05);
+    border-radius: 1.5vh;
+}
+
