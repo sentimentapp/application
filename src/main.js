@@ -1,29 +1,28 @@
 import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
+import App from '@/App'
+import router from '@/router'
 
 // Imports custom styles
 import '@/styles/styles.css'
 
 Vue.config.productionTip = false
 
-// Imports data initilzation function to be run at app start
-import { dataInitialization } from "@/components/capacitor_storage.js"
+// Stores the data
+const data = {
+  storageLoaded: false,
+  entries: [],
+  settings: {},
+}
 
-// Waits for the dataIntialization promise to return
-dataInitialization().then(result =>{
-  console.log(result)
-  // If a value is gotten, load the application
-  if(result){
-    new Vue({
-      // Pushes data from the returned object into global variables
-      data: {
-        entries: result["entries"],
-        settings: result["settings"]
-      },
-      router,
-      render: h => h(App),
-    }).$mount('#app')
-  }
-})
+// Checks to see if the data is loaded before sending the user to a page
+router.beforeEach((to,_,next)=>{
+  if (data.storageLoaded || to.path === '/loading') next()
+  else next('/loading')
+});
 
+// Create Vue instance
+new Vue({
+  data,
+  router,
+  render: h => h(App),
+}).$mount('#app')
