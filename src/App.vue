@@ -11,12 +11,6 @@ export default {
 </script>
 
 <style>
-html {
-  --theme-bg: #DFD;
-  --theme-fg: #131;
-  --theme-ac: #5B5;
-}
-body { background:var(--theme-bg) }
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -26,14 +20,5 @@ body { background:var(--theme-bg) }
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-button {
-  background: var(--theme-ac);
-  color: var(--theme-bg);
-  border: none;
-  border-radius: 0.33em;
-  padding: 0.33em;
-  margin: 0.33em;
-  cursor: pointer;
-  font-weight: bold;
-}
+
 </style>
