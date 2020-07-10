@@ -13,13 +13,23 @@ export default {
   data: ()=>({
     // dummy entry before indexed entry is loaded
     entry: {
-      date: "Loading...",
+      date: new Date(0),
       text: "Loading...",
       emotions: ["Loading..."],
     }
   }),
   created() {
-    this.entry = this.$root.entries[this.$route.params.index]
+    const i = this.$route.params.index;
+    if(i in this.$root.entries){
+      this.entry = this.$root.entries[i]
+    }else{
+      // when wrong index
+      this.entry = {
+        date: new Date(0),
+        text: "No entry",
+        emotions: ["N/A"],
+      }
+    }
   }
 }
 </script>
