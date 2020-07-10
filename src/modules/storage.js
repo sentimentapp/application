@@ -49,8 +49,6 @@ export function loadStorage() {
     })
   ))
 
-  /* <DEBUG> */ promises.push(new Promise((r)=>{setTimeout(r,1000)})) /* </DEBUG> */
-
   // Checks to make sure all promises for data have been fulfilled
   return Promise.all(promises).then(() => accessors )
 }
