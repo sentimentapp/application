@@ -1,7 +1,8 @@
 <template>
   <div>
     <h1>Dashboard</h1>
-    <router-link to="/statistics">Statistics</router-link>
+    <router-link tag="button" to="/statistics">Statistics</router-link>
+    <router-link tag="button" to="/entries">Entries</router-link>
     <br>
     <router-link to="/storage">Storage</router-link>
     <br>
@@ -12,13 +13,7 @@
 </template>
 
 <script>
-
 export default {
-  name: 'Dashboard',
+  name: 'Dashboard'
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
-</style>
