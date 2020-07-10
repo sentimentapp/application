@@ -11,7 +11,7 @@
 export default {
   name: 'ViewEntry',
   data: ()=>({
-    // dummy entry
+    // dummy entry before indexed entry is loaded
     entry: {
       date: "Loading...",
       text: "Loading...",
@@ -23,7 +23,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-</style>
