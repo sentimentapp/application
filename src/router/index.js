@@ -7,6 +7,9 @@ import Statistics from '@/pages/Statistics'
 import Entries from '@/pages/Entries'
 import NewEntry from '@/pages/NewEntry'
 import ViewEntry from '@/pages/ViewEntry'
+import Settings from '@/pages/Settings'
+import Storage from '@/pages/Storage'
+import CapacitorStorage from '@/pages/CapacitorStorage'
 
 Vue.use(Router)
 
@@ -41,6 +44,15 @@ const router = new Router({
       path: '/entries/:index',
       name: 'ViewEntry',
       component: ViewEntry
+    },
+      path: '/capacitor-storage',
+      name: 'CapacitorStorage',
+      component: CapacitorStorage
+    },
+    {
+    path: '/settings',
+    name: 'Settings',
+    component: Settings
     }
   ]
 })
