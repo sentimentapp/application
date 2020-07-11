@@ -13,6 +13,7 @@
     "@capacitor/cli": "^2.2.1",
     "@capacitor/core": "^2.2.1",
     "@capacitor/ios": "^2.2.1",
+    "@fortawesome/fontawesome-free": "^5.13.1",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-router": "^3.3.4",
