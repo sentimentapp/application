@@ -2,9 +2,7 @@
     <div id="menubar">
         <router-link to="/entries/new">
             <div id="add-entry" class="button is-gradient">
-                <svg preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 4vw; height: 4vw;">
-                    <path d="M1.14286 6.28571H6.28571V1.14286C6.28571 0.511786 6.7975 0 7.42857 0H8.57143C9.2025 0 9.71429 0.511786 9.71429 1.14286V6.28571H14.8571C15.4882 6.28571 16 6.7975 16 7.42857V8.57143C16 9.2025 15.4882 9.71429 14.8571 9.71429H9.71429V14.8571C9.71429 15.4882 9.2025 16 8.57143 16H7.42857C6.7975 16 6.28571 15.4882 6.28571 14.8571V9.71429H1.14286C0.511785 9.71429 0 9.2025 0 8.57143V7.42857C0 6.7975 0.511785 6.28571 1.14286 6.28571Z" fill="#F9FFFC"/>
-                </svg>
+                <i class="fas fa-plus has-text-white"></i>
             </div>
         </router-link>
         <div id="navigation">

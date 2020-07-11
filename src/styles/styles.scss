@@ -13,6 +13,8 @@ $light: rgba(37, 40, 61, 0.1);
 
 // Defining bulma document colors
 $body-background-color: #F7F9FF;
+$text: $dark;
+$text-light: rgba(37, 40, 61, 0.1); 
 
 // Import Bulma
 @import "../../node_modules/bulma/bulma.sass";
@@ -28,10 +30,6 @@ $body-background-color: #F7F9FF;
     color: #A8E7F4 !important;
 }
 
-.has-text-weight-bold {
-    font-weight: 900 !important;
-}
-
 // Components
 .card {
     background: #FFFFFF;
@@ -39,3 +37,62 @@ $body-background-color: #F7F9FF;
     border-radius: 1.5vh;
 }
 
+// Checkbox CSS
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 19px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(37, 40, 61, 0.1);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 13px;
+    width: 13px;
+    left: 3px;
+    bottom: 3px;
+    background-color: rgba(37, 40, 61, 0.25);
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background: linear-gradient(240.44deg, #AFCFEC 5.34%, #AFECE7 100%)
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 64px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
