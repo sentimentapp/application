@@ -6,6 +6,7 @@
     <div v-for="(entry, index) in $root.entries.slice().reverse()" :key="entry.text">
       <EntryListItem :entry=entry :index=($root.entries.length-1-index) />
     </div>
+    <menu-bar></menu-bar>
   </div>
 </template>
 

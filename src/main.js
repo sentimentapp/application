@@ -4,6 +4,11 @@ import router from '@/router'
 
 // Imports custom styles
 import '@/styles/styles.css'
+import '@fortawesome/fontawesome-free/css/all.css'
+
+// Makes the menubar global
+import MenuBar from '@/components/MenuBar.vue'
+Vue.component('menu-bar', MenuBar)
 
 Vue.config.productionTip = false
 
