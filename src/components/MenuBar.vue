@@ -10,24 +10,24 @@
         <div id="navigation">
             <div class="columns is-mobile">
                 <div class="column">
-                    <router-link to="/" :class="{ 'has-text-gradient': (currentPage == '/'), 'has-text-light': (currentPage != '/')}">
+                    <router-link to="/" class="link" :class="{ 'has-text-gradient': (currentPage == '/'), 'has-text-light': (currentPage != '/')}">
                         <i class="fas fa-bookmark"></i>
                     </router-link>
                 </div>
                 <div class="column">
-                    <router-link to="/statistics" :class="{ 'has-text-gradient': (currentPage == '/statistics'), 'has-text-light': (currentPage != '/statistics')}">
+                    <router-link to="/statistics" class="link" :class="{ 'has-text-gradient': (currentPage == '/statistics'), 'has-text-light': (currentPage != '/statistics')}">
                         <i class="fas fa-chart-pie"></i>
                     </router-link>
                 </div>
                 <div class="column">
                 </div>
                 <div class="column">
-                    <router-link to="/entries" :class="{ 'has-text-gradient': (currentPage == '/entries'), 'has-text-light': (currentPage != '/entries')}">
+                    <router-link to="/entries" class="link" :class="{ 'has-text-gradient': (currentPage == '/entries'), 'has-text-light': (currentPage != '/entries')}">
                         <i class="fas fa-stream"></i>
                     </router-link>
                 </div>
                 <div class="column">
-                    <router-link to="/settings" :class="{ 'has-text-gradient': (currentPage == '/settings'), 'has-text-light': (currentPage != '/settings')}">
+                    <router-link to="/settings" class="link" :class="{ 'has-text-gradient': (currentPage == '/settings'), 'has-text-light': (currentPage != '/settings')}">
                         <i class="fas fa-cog"></i>
                     </router-link>
                 </div>
@@ -112,6 +112,14 @@ export default {
 .column {
     display: block;
     margin: auto
+}
+
+.link {
+    padding: 8px;
+}
+
+i {
+    font-size: 18px;
 }
 
 </style>
