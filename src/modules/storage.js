@@ -38,13 +38,26 @@ export function loadStorage() {
   // Used to generate named accessors
   const accessors = {
     entries: [],
-    settings: {},
+    settings: {
+      "Dark Mode": {
+        "state": false,
+        "icon": 'fas fa-moon'
+      },
+      "Large Text": {
+        "state": false,
+        "icon": "fas fa-font"
+      },
+      "Data Collection": {
+        "state": false,
+        "icon": "fas fa-info-circle"
+      },
+    },
   }
 
   // Builds a list of promises that populate accessors
   const promises = Object.entries(accessors)
   .map(( [key,value] )=>(
-    getItem( key,value ).then((data)=>{
+    getItem( key, value ).then((data)=>{
       accessors[key] = createAccessor(key, data)
     })
   ))
