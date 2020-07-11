@@ -9,7 +9,7 @@ $family-sans-serif: "Poppins", sans-serif;
 // Creating custom variables
 $gradient: linear-gradient(267.4deg, #AFCFEC 1.64%, #AFECE7 101.09%);
 $dark: #25283D;
-$light: rgba(37, 40, 61, 0.05); 
+$light: rgba(37, 40, 61, 0.1); 
 
 // Defining bulma document colors
 $body-background-color: #F7F9FF;
@@ -22,6 +22,10 @@ $body-background-color: #F7F9FF;
 // Single variables
 .is-gradient {
     background: $gradient;
+}
+
+.has-text-gradient {
+    color: #A8E7F4 !important;
 }
 
 .has-text-weight-bold {
