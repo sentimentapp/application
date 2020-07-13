@@ -20,6 +20,11 @@ export default {
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -moz-osx-font-smoothing: grayscale;
+  overflow:hidden;
+}
+
+#app::-webkit-scrollbar {
+    display: none;
 }
 
 </style>
