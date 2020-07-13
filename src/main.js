@@ -22,7 +22,10 @@ const data = {
 // Checks to see if the data is loaded before sending the user to a page
 router.beforeEach((to,_,next)=>{
   if (data.storageLoaded || to.path === '/loading') next()
-  else next('/loading')
+  else router.replace({
+    path: '/loading',
+    query: { redirect:to.path }
+  })
 });
 
 // Create Vue instance

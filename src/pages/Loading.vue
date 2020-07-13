@@ -23,7 +23,7 @@ export default {
         // Put accessors in Vue instance
         Object.assign(this.$root, storage)
         // Go to dashboard
-        router.replace('/')
+        router.replace(this.$route.query.redirect || '/')
       })
     }
   }
