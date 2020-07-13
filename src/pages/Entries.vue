@@ -24,6 +24,7 @@
       <div id="exitKeyboard" @click="closeKeyboard()" v-if="focused"></div> 
     </div>
     <div class="section">
+      <div class="fader"></div>
       <div id="entries" v-for="(entry, index) in $root.entries.slice().reverse()" :key="entry.date.toString()">
         <EntryListItem :entry=entry :index=($root.entries.length-1-index) />
       </div>
@@ -112,6 +113,17 @@ input::-webkit-input-placeholder {
 
 .section {
   padding-top: 3vh;
+  padding-bottom: 128px;
+}
+
+.fader {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #F6F9FF 100%);
+  position: fixed;
+  width: 100%;
+  height: 20vh;
+  z-index: 3;
+  bottom: 0;
+  left: 0;
 }
 
 </style>

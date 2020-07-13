@@ -6,7 +6,7 @@
           <p class="emoji">{{this.emojis[entry.emotions[0]]}}</p>
         </div>
         <div class="column is-four-fifths">
-          <h3 class="date has-text-left has-text-weight-bold">{{ entry.date.toDateString() }}</h3>
+          <h3 class="date has-text-left has-text-weight-bold">{{ this.splicedDate }}</h3>
           <p class="entryText has-text-left">{{ entry.text }}</p>
         </div>
       </div>
@@ -26,12 +26,17 @@ export default {
       'sad': '😔',
       'excited': '😠',
       'bored': '😒',
-    }
+    },
+    splicedDate: ''
   }),
   methods: {
     click() {
       router.push('/entries/'+this.index)
     }
+  },
+  created() {
+    var spliced = this.entry.date.toDateString().split(' ')
+    this.splicedDate = spliced[1] + ' ' + spliced[2]
   }
 }
 </script>
@@ -43,7 +48,7 @@ export default {
 }
 
 .date {
-  padding-bottom: 8px;
+  padding-bottom: 4px;
 }
 
 .entryText {
@@ -57,7 +62,7 @@ export default {
 
 .emoji {
   font-size: 2rem;
-  padding-top: 4px;
+  padding-top: 2px;
 }
 
 
