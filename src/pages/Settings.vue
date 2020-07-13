@@ -57,10 +57,7 @@ export default {
  display: inline-block;
  position:relative;
  float:left;
- margin-top: 5vh;
- left: 0;
- clear:left;
- display: table;
+ margin-top: 3vh;
 }
 
 #cutout {
