@@ -7,6 +7,10 @@
   "plugins": {
     "SplashScreen": {
       "launchShowDuration": 0
+    },
+    "Keyboard": {
+      "resize": "none",
+      "style": "dark"
     }
   },
   "cordova": {}

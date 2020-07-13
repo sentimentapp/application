@@ -74,6 +74,7 @@ export default {
     bottom: 0px;
     width: 100%;
     height: 35vw;
+    z-index: 99;
 }
 
 #add-entry {
