@@ -5,7 +5,7 @@ export function emotions(text){
     setTimeout(()=>{
       r([
         (es%2) ? 'happy' : 'sad',
-        (ts%2) ? 'excited' : 'bored',
+        (ts%2) ? 'angry' : 'bored',
       ])
     }, 1000)
   });

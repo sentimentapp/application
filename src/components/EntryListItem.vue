@@ -1,9 +1,15 @@
 <template>
-  <div class="eli" @click="click">
+  <div class="card" @click="click">
     <div>
-      <h3 class="eli-date">{{ entry.date.toDateString() }}</h3>
-      <span class="eli-emo">{{ entry.emotions.join(', ') }}</span>
-      <p class="eli-text">{{ entry.text }}</p>
+      <div class="columns is-mobile">
+        <div class="column is-one-fifth">
+          <p class="emoji">{{this.emojis[entry.emotions[0]]}}</p>
+        </div>
+        <div class="column is-four-fifths">
+          <h3 class="date has-text-left has-text-weight-bold">{{ entry.date.toDateString() }}</h3>
+          <p class="entryText has-text-left">{{ entry.text }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -14,6 +20,14 @@ import router from '@/router'
 export default {
   name: 'EntryListItem',
   props: ['entry', 'index'],
+  data: ()=>({
+    emojis: {
+      'happy': '😃',
+      'sad': '😔',
+      'excited': '😠',
+      'bored': '😒',
+    }
+  }),
   methods: {
     click() {
       router.push('/entries/'+this.index)
@@ -23,24 +37,28 @@ export default {
 </script>
 
 <style scoped>
-.eli {
-  text-align: left;
-  border:2px solid;
-  border-radius:0.33em;
-  margin:0.33em;
-  padding:0.33em;
-  cursor:pointer;
+.card {
+  padding: 16px 8vw 16px 8vw;
+  margin: 16px 0 16px 0;
 }
-.eli-date {
-  display:inline;
+
+.date {
+  padding-bottom: 8px;
 }
-.eli-emo {
-  float:right;
-  font-variant:small-caps;
+
+.entryText {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: Nunito;
+  color: rgba(37, 40, 61, 0.5);
+  font-size: 14px;
 }
-.eli-text {
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
+
+.emoji {
+  font-size: 2rem;
+  padding-top: 4px;
 }
+
+
 </style>

@@ -23,8 +23,10 @@
       <input id="search" @focus="focused = true" @blur="focused = false" :placeholder="'\uf002  Search'">
       <div id="exitKeyboard" @click="closeKeyboard()" v-if="focused"></div> 
     </div>
-    <div id="entries" v-for="(entry, index) in $root.entries.slice().reverse()" :key="entry.date.toString()">
-      <EntryListItem :entry=entry :index=($root.entries.length-1-index) />
+    <div class="section">
+      <div id="entries" v-for="(entry, index) in $root.entries.slice().reverse()" :key="entry.date.toString()">
+        <EntryListItem :entry=entry :index=($root.entries.length-1-index) />
+      </div>
     </div>
     <menu-bar></menu-bar>
   </div>
@@ -57,7 +59,7 @@ export default {
  display: inline-block;
  position:relative;
  float:left;
- margin-top: 3vh;
+ margin-top: 1vh;
 }
 
 #cutout {
@@ -106,6 +108,10 @@ input::-webkit-input-placeholder {
   color: rgba(37, 40, 61, 0.1);
   overflow: visible;
   line-height: 12px;
+}
+
+.section {
+  padding-top: 3vh;
 }
 
 </style>
