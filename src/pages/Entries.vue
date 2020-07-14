@@ -28,7 +28,6 @@
         <EntryListItem :entry=entry :index=($root.entries.length-1-index) />
       </div>
     </div>
-    <menu-bar></menu-bar>
   </div>
 </template>
 

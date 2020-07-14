@@ -60,9 +60,13 @@ export default {
       currentPage: ''
     }
   },
-  created () {
-    this.currentPage = this.$router.currentRoute.fullPath;
-  },
+  watch: {
+    '$route' () {
+        this.currentPage = this.$router.currentRoute.fullPath;
+    }
+  }, created () {
+        this.currentPage = this.$router.currentRoute.fullPath;
+  }
 }
 </script>
 
