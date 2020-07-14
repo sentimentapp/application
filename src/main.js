@@ -38,10 +38,18 @@ router.beforeEach((to,_,next)=>{
   })
 });
 
+// Imports haptic plugin for global method
+import { Plugins } from '@capacitor/core';
+const { Haptics } = Plugins;
 
 // Create Vue instance
 new Vue({
   data,
   router,
+  methods: {
+    hapticsVibrate() {
+        Haptics.impact();
+    }
+  },
   render: h => h(App),
 }).$mount('#app')

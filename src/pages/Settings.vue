@@ -31,7 +31,7 @@
             </div>
             <div class="column is-one-fifth">
               <label class="switch">
-                <input type="checkbox" v-model="$root.settings[name].state">
+                <input type="checkbox" v-model="$root.settings[name].state" @click="$root.hapticsVibrate();">
                 <span class="slider round"></span>
               </label>
             </div>
