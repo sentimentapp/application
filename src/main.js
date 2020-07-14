@@ -26,6 +26,8 @@ import 'aos/dist/aos.css'
 // Creates animation
 AOS.init()
 
+window.screen.orientation.lock('portrait')
+
 // Checks to see if the data is loaded before sending the user to a page
 router.beforeEach((to,_,next)=>{
   if (data.storageLoaded || to.path === '/loading') next()
