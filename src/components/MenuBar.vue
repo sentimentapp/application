@@ -1,7 +1,7 @@
 <template>
     <div id="menubar">
         <router-link to="/entries/new">
-            <div id="add-entry" class="button is-gradient">
+            <div @click="$root.hapticsVibrate()" id="add-entry" class="button is-gradient">
                 <i class="fas fa-plus has-text-white"></i>
             </div>
         </router-link>
@@ -53,6 +53,7 @@
 
 
 <script>
+
 export default {
   name: 'MenuBar',
   data () {

@@ -1,5 +1,5 @@
 <template>
-  <div class="card" @click="click">
+  <div class="card" @click="click(); $root.hapticsVibrate();">
     <div>
       <div class="columns is-mobile">
         <div class="column is-one-fifth">
