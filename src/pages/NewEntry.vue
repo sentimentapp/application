@@ -1,10 +1,11 @@
 <template>
   <div>
-    <h1>New Entry</h1>
-    <button @click="save">Save</button>
-    <router-link tag="button" to="/entries">Cancel</router-link>
-    <br/>
-    <textarea rows="10" v-model="text" />
+    <div class="header" id="NewEntry">
+      <br>
+      <router-link tag="button" to="/entries">&#8249; Exit</router-link>
+      <button class= "save" @click="save">Done</button>
+    </div>
+    <textarea rows="15" v-model="text" />
   </div>
 </template>
 
@@ -36,5 +37,30 @@ export default {
 textarea {
   width:100%;
   height:100%;
+  border:1px;
 }
+.header {
+  padding:10px 16px;
+  background: #555;
+  color: #f1f1f1;
+}
+.content {
+  padding:10px;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.sticky + .content {
+  padding-top:10px;
+}
+.btn {
+  border:none;
+  color:brown;
+  padding:14px 28px;
+  cursor: pointer;
+}
+.save{background-color:darkblue;}
+.save:hover{background-color:darkorchid;}
 </style>
