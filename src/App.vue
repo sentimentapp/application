@@ -23,8 +23,5 @@ export default {
   overflow:hidden;
 }
 
-#app::-webkit-scrollbar {
-    display: none;
-}
 
 </style>
