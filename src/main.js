@@ -19,6 +19,13 @@ const data = {
   settings: {},
 }
 
+// Imports animation componenets
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
+// Creates animation
+AOS.init()
+
 // Checks to see if the data is loaded before sending the user to a page
 router.beforeEach((to,_,next)=>{
   if (data.storageLoaded || to.path === '/loading') next()
@@ -27,6 +34,7 @@ router.beforeEach((to,_,next)=>{
     query: { redirect:to.path }
   })
 });
+
 
 // Create Vue instance
 new Vue({

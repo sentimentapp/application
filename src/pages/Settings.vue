@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="section">
-      <div class="card">
+      <div class="card" data-aos="fade-up" data-aos-duration="1000">
         <div class="settings-section" v-for="(data, name) in $root.settings" :key="name">
           <div class="columns is-mobile">
             <div class="column is-one-fifth">
