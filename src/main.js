@@ -23,9 +23,10 @@ const data = {
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
-// Creates animation
+// Initilzes the animation library
 AOS.init()
 
+// Uses a cordava plugin to lock the screen orientation
 window.screen.orientation.lock('portrait')
 
 // Checks to see if the data is loaded before sending the user to a page
