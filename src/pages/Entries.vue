@@ -24,8 +24,7 @@
       <div id="exitKeyboard" @click="closeKeyboard()" v-if="focused"></div> 
     </div>
     <div class="section">
-      <div class="fader"></div>
-      <div id="entries" v-for="(entry, index) in $root.entries.slice().reverse()" :key="entry.date.toString()">
+      <div data-aos="fade-up" data-aos-duration="1000" class="entries" v-for="(entry, index) in $root.entries.slice().reverse()" :key="entry.date.toString()">
         <EntryListItem :entry=entry :index=($root.entries.length-1-index) />
       </div>
     </div>
@@ -50,7 +49,7 @@ export default {
       }
       console.log("epico")
     }
-  }
+  },
 }
 </script>
 
@@ -88,9 +87,10 @@ export default {
   bottom: 0px;
 }
 
-#entries {
+.entries {
   z-index: 2;
   position: relative;
+  transition: 1.5s all cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
 #search {
@@ -114,16 +114,6 @@ input::-webkit-input-placeholder {
 .section {
   padding-top: 3vh;
   padding-bottom: 128px;
-}
-
-.fader {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #F6F9FF 100%);
-  position: fixed;
-  width: 100%;
-  height: 20vh;
-  z-index: 3;
-  bottom: 0;
-  left: 0;
 }
 
 </style>
