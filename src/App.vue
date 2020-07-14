@@ -30,16 +30,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Sliding
-.slideUp-enter {
-  transform: translateY(300%);
-}
-
-.slideUp-enter-active {
-  transition: transform 1.5s cubic-bezier(0.37, 0, 0.63, 1);
-} */
-
-
 /* Fade */
 .fade-enter {
   opacity: 0;
