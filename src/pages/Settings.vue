@@ -39,7 +39,6 @@
         </div>
       </div>
     </div>
-    <menu-bar></menu-bar>
   </div>
 </template>
 
