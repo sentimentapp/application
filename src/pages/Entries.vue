@@ -24,8 +24,8 @@
       <div id="exitKeyboard" @click="closeKeyboard()" v-if="focused"></div> 
     </div>
     <div class="section">
-      <div data-aos="fade-up" data-aos-duration="1000" class="entries" v-for="(entry, index) in $root.entries.slice().reverse()" :key="entry.date.toString()">
-        <EntryListItem :entry=entry :index=($root.entries.length-1-index) />
+      <div data-aos="fade-up" data-aos-duration="1000" class="entries" v-for="entry in shownEntries" :key="entry.date.toString()">
+        <EntryListItem :entry=entry />
       </div>
     </div>
   </div>
@@ -39,7 +39,8 @@ export default {
   components: {EntryListItem},
   name: 'Entries',
   data: ()=>({
-    focused: false
+    focused: false,
+    shownEntries: [],
   }),
   methods: {
     closeKeyboard() {
@@ -48,6 +49,9 @@ export default {
       }
       console.log("epico")
     }
+  },
+  created() {
+    this.shownEntries = this.$root.entries.slice().reverse()
   },
 }
 </script>
