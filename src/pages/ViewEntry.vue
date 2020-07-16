@@ -31,11 +31,6 @@ export default {
     splicedDate: ''
   }),
   created() {
-
-    // Makes the date more readable
-    var spliced = this.entry.date.toDateString().split(' ')
-    this.splicedDate = spliced[1] + ' ' + spliced[2]
-
     const i = this.$route.params.index;
     if(i in this.$root.entries){
       this.entry = this.$root.entries[i]
@@ -43,10 +38,14 @@ export default {
       // when wrong index
       this.entry = {
         date: new Date(0),
-        text: "No entry",
-        emotions: ["N/A"],
+        text: "Entry does not exist",
+        emotions: ["sad"],
       }
     }
+    // Makes the date more readable
+    // Moved this to a place where it works
+    var spliced = this.entry.date.toDateString().split(' ')
+    this.splicedDate = spliced[1] + ' ' + spliced[2]
   }
 }
 </script>
