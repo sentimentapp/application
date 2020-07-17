@@ -20,7 +20,7 @@
       </div>
     </div>
     <div>
-      <input id="search" @focus="focused = true" @blur="focused = false" :placeholder="'Search'" v-model="searching">
+      <input id="search" @focus="focused = true" @blur="focused = false" :placeholder="'Search'" v-model="searching" autocomplete="off">
       <div id="exitKeyboard" @click="closeKeyboard()" v-if="focused"></div> 
     </div>
     <div class="section">
