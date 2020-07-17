@@ -65,7 +65,6 @@ export default {
   watch: {
     '$route' () {
         this.currentPage = this.$router.currentRoute.fullPath;
-        console.log(this.currentPage )
         if (this.currentPage == "/loading?redirect=%2F") {
             this.loadMenubar = false
         } else {
@@ -74,7 +73,6 @@ export default {
     }
   }, created () {
         this.currentPage = this.$router.currentRoute.fullPath;
-        console.log(this.currentPage )
         if (this.currentPage == "/loading?redirect=%2F") {
             this.loadMenubar = false
         } else {
