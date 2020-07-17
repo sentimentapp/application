@@ -39,18 +39,7 @@ export function loadStorage() {
   const accessors = {
     entries: [],
     settings: {
-      "Dark Mode": {
-        "state": false,
-        "icon": 'fas fa-moon'
-      },
-      "Large Text": {
-        "state": false,
-        "icon": "fas fa-font"
-      },
-      "Data Collection": {
-        "state": false,
-        "icon": "fas fa-info-circle"
-      },
+      "Haptic Feedback": true
     },
   }
 

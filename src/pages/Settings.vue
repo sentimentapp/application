@@ -24,14 +24,14 @@
         <div class="settings-section" v-for="(data, name) in $root.settings" :key="name">
           <div class="columns is-mobile">
             <div class="column is-one-fifth">
-              <i class="has-text-gradient" :class="data.icon"></i>
+              <i class="has-text-gradient" :class="settings[name].icon"></i>
             </div>
             <div class="column is-three-fifths">
-              <h3 class="has-text-weight-bold has-text-left">{{name}}</h3>
+              <h3 class="has-text-weight-bold has-text-left">{{ name }}</h3>
             </div>
             <div class="column is-one-fifth">
               <label class="switch">
-                <input type="checkbox" v-model="$root.settings[name].state" @click="$root.hapticsVibrate();">
+                <input type="checkbox" v-model="$root.settings[name]" @click="$root.hapticsVibrate();">
                 <span class="slider round"></span>
               </label>
             </div>
@@ -46,6 +46,13 @@
 
 export default {
   name: 'Settings',
+  data: ()=>({
+    "settings": {
+      "Haptic Feedback": {
+        "icon": "fas fa-wave-square"
+      }
+    }
+  }),
 }
 </script>
 
