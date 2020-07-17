@@ -1,13 +1,14 @@
 <template>
-  <div>
+<div>
     <div class="header" id="NewEntry">
-      <router-link class= "exit" tag="button" to="/entries">&#8249; Exit</router-link> 
-      <button class= "save" @click="save">Done</button>
+      <h1><router-link class= "exit" tag="button" to="/entries">&#8249; Exit</router-link> 
+      <button class= "save" @click="save">Done</button></h1>
     </div>
-    <br>
-    <br>
-    <br>
-    <textarea rows="15" v-model="text" />
+    <div>
+      <br>
+      <br>
+      <textarea placeholder=" Tell me about your day ..." rows="15" v-model="text" />
+    </div>
   </div>
 </template>
 
@@ -43,32 +44,40 @@ textarea {
   border:1px;
 }
 .header {
+  height:81px ;
+  position: absolute;
+  top: 0px ;
+  right: 0px;
+  left: 0px;
   background: #f6f9ff;
   box-shadow: 0px 1px 50px rgba(37, 40, 61, 0.1);
-  border-radius: 0px 0px 10px;
+  border-radius: 0px 0px 16px 16px;
 }
 .content {
-  padding:10px;
+  padding:0px;
   background: #adadad;
 }
-.btn {
+.save{
   border:none;
-  padding:0px 0px;
-  cursor: pointer;
-}
-.save{background-color: #f6f9ff;
-color: #afcfec;
-font-family: Poppins;
-Font-weight: bold;
-font-size: 16px; 
-float: right;}
-
-.exit{
-  background-color:#f6f9ff;
-  color: #616569;
+  position: absolute;
+  right:20px;
+  top:44px;
+  background-color: #f6f9ff;
+  color: #afcfec;
   font-family: Poppins;
   Font-weight: bold;
   font-size: 16px; 
-  float: left;
+}
+
+.exit{
+  border:none;
+  position: absolute;
+  top:44px;
+  left:20px;
+  background-color:#f6f9ff;
+  color:lightgrey;
+  font-family: Poppins;
+  Font-weight: bold;
+  font-size: 16px; 
 }
 </style>
