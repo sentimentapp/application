@@ -63,7 +63,6 @@ export default {
       if (this.focused) {
         this.refs.textInput.blur()
       }
-      console.log("epico")
     }
   },
   created() {
