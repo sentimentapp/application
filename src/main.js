@@ -48,7 +48,9 @@ new Vue({
   router,
   methods: {
     hapticsVibrate() {
+      if (this.settings["Haptic Feedback"]) {
         Haptics.impact();
+      }
     }
   },
   render: h => h(App),
