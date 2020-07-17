@@ -20,12 +20,12 @@
       </div>
     </div>
     <div>
-      <input id="search" @focus="focused = true" @blur="focused = false" :placeholder="'\uf002  Search'">
+      <input id="search" @focus="focused = true" @blur="focused = false" :placeholder="'Search'" v-model="searching" autocomplete="off">
       <div id="exitKeyboard" @click="closeKeyboard()" v-if="focused"></div> 
     </div>
     <div class="section">
-      <div data-aos="fade-up" data-aos-duration="1000" class="entries" v-for="(entry, index) in $root.entries.slice().reverse()" :key="entry.date.toString()">
-        <EntryListItem :entry=entry :index=($root.entries.length-1-index) />
+      <div data-aos="fade-up" data-aos-duration="1000" class="entries" v-for="entry in shownEntries" :key="entry.date.toString()">
+        <EntryListItem :entry=entry />
       </div>
     </div>
   </div>
@@ -35,11 +35,28 @@
 
 import EntryListItem from '@/components/EntryListItem'
 
+const searchEmotion = (entries, emo)=>{
+  const search = emo.replace(/\W/g, '').toLowerCase();
+  return entries.filter((entry)=>(
+    entry.emotions.includes(search)
+  ))
+}
+
+const searchText = (entries, text)=>{
+  const search = text.replace(/\W/g, '').toLowerCase();
+  return entries.filter((entry)=>(
+    entry.text.replace(/\W/g, '').toLowerCase()
+      .indexOf(search)>-1
+  ))
+}
+
 export default {
   components: {EntryListItem},
   name: 'Entries',
   data: ()=>({
-    focused: false
+    focused: false,
+    shownEntries: [],
+    searching: '',
   }),
   methods: {
     closeKeyboard() {
@@ -48,6 +65,22 @@ export default {
       }
       console.log("epico")
     }
+  },
+  created() {
+    this.shownEntries = this.$root.entries.slice().reverse()
+
+    let lastSearching = this.searching;
+    this.iid0 = setInterval(()=>{
+      if(this.searching !== lastSearching){
+        this.shownEntries = (this.searching[0]==':' ? searchEmotion : searchText)(
+          this.$root.entries, this.searching
+        ).slice().reverse()
+      }
+      lastSearching = this.searching;
+    }, 1000)
+  },
+  destroyed() {
+    clearInterval(this.iid0)
   },
 }
 </script>

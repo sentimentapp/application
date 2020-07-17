@@ -19,7 +19,7 @@ import router from '@/router'
 
 export default {
   name: 'EntryListItem',
-  props: ['entry', 'index'],
+  props: ['entry'],
   data: ()=>({
     emojis: {
       'happy': '😃',
@@ -31,7 +31,7 @@ export default {
   }),
   methods: {
     click() {
-      router.push('/entries/'+this.index)
+      router.push('/entries/'+this.$root.entries.indexOf(this.entry))
     }
   },
   created() {
