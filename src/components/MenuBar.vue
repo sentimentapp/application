@@ -1,5 +1,5 @@
 <template>
-    <div id="menubar">
+    <div id="menubar" v-if="loadMenubar">
         <router-link to="/entries/new">
             <div @click="$root.hapticsVibrate()" id="add-entry" class="button is-gradient">
                 <i class="fas fa-plus has-text-white"></i>
@@ -58,15 +58,28 @@ export default {
   name: 'MenuBar',
   data () {
     return {
-      currentPage: ''
+      currentPage: '',
+      loadMenubar: true
     }
   },
   watch: {
     '$route' () {
         this.currentPage = this.$router.currentRoute.fullPath;
+        console.log(this.currentPage )
+        if (this.currentPage == "/loading?redirect=%2F") {
+            this.loadMenubar = false
+        } else {
+            this.loadMenubar = true
+        }
     }
   }, created () {
         this.currentPage = this.$router.currentRoute.fullPath;
+        console.log(this.currentPage )
+        if (this.currentPage == "/loading?redirect=%2F") {
+            this.loadMenubar = false
+        } else {
+            this.loadMenubar = true
+        }
   }
 }
 </script>
