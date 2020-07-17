@@ -1,5 +1,5 @@
 <template>
-  <Loader text='Loading journal...' />
+  <Loader text='Loading Journal' />
 </template>
 
 <script>
