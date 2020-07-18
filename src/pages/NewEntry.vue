@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="content">
-      <div id="getPrompt" class="hast-text-centered" @click="pickPrompt(); $root.hapticsVibrate();">
+      <div id="getPrompt" class="has-text-centered" @click="pickPrompt(); $root.hapticsVibrate();">
         <i class="fas fa-lightbulb has-text-white" style="font-size: 12px; margin-top: 8px;"></i>
       </div>
       <div>

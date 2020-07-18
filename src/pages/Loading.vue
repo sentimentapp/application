@@ -13,6 +13,7 @@ export default {
   created() {
     if(this.$root.storageLoaded) router.replace('/')
     else {
+      
       loadStorage().then((storage)=>{
         // Storage hath been loaded
         this.$root.storageLoaded = true
