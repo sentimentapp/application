@@ -5,11 +5,11 @@
         <div class="column is-one-fifth" @click="click();">
           <p class="emoji">{{this.emojis[entry.emotions[0]]}}</p>
         </div>
-        <div class="column is-three-fifths" @click="click();">
+        <div class="column" @click="click();" :class="columnSize">
           <h3 class="date has-text-left has-text-weight-bold">{{ this.splicedDate }}</h3>
           <p class="entryText has-text-left">{{ entry.text }}</p>
         </div>
-        <div class="column is-one-fifth exit">
+        <div class="column is-one-fifth exit" v-if="$root.settings['Delete Entries']">
           <p>
             <i class="fas fa-times has-text-light" @click="deleteEntry()"></i>
           </p>
@@ -32,6 +32,7 @@ export default {
       'excited': '😠',
       'bored': '😒',
     },
+    columnSize: null,
     splicedDate: ''
   }),
   methods: {
@@ -52,6 +53,11 @@ export default {
   created() {
     var spliced = this.entry.date.toDateString().split(' ')
     this.splicedDate = spliced[1] + ' ' + spliced[2]
+    if (this.$root.settings['Delete Entries']) {
+      this.columnSize = "is-three-fifths"
+    } else {
+      this.columnSize = "is-four-fifths"
+    }
   }
 }
 </script>
@@ -73,9 +79,6 @@ export default {
   font-family: Nunito;
   color: rgba(37, 40, 61, 0.5);
   font-size: 14px;
-  text-align: center;
-  vertical-align: middle;
-  display: table-cell;
 }
 
 .emoji {
