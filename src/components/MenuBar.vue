@@ -1,5 +1,5 @@
 <template>
-    <div id="menubar" v-if="loadMenubar">
+    <div id="menubar" v-if="$root.storageLoaded">
         <router-link to="/entries/new">
             <div @click="$root.hapticsVibrate()" id="add-entry" class="button is-gradient">
                 <i class="fas fa-plus has-text-white"></i>
