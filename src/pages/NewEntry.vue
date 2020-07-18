@@ -9,7 +9,7 @@
       </div>
       <div class="column has-text-right">
         <p class="save" @click="save">
-          Done
+          {{ saving ? "Saving..." : "Done" }}
           <i class="fas fa-check" style="margin-left: 8px"></i>
         </p>
       </div>
@@ -37,10 +37,16 @@ export default {
   name: 'NewEntry',
   data: ()=>({
     text: '',
+    saving: false,
     prompt: 'Tell Me About Today'
   }),
   methods: {
     save() {
+      // Do not save twice
+      if(this.saving) return;
+      // Do not save empty entries
+      if(!this.text.replace(/\W/g, '')) return;
+      this.saving = true;
       emotions(this.text).then((emos)=>{
         this.$root.entries.push({
           date: new Date(),
@@ -48,7 +54,8 @@ export default {
           emotions: emos,
         })
         router.push('/entries')
-      })
+      }).catch(()=>{ this.saving=false })
+      // ^ Allow retry if saving fails
     },
     pickPrompt() {
       this.prompt = pickPrompt();
