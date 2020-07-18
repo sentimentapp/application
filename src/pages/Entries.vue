@@ -55,7 +55,7 @@ export default {
   name: 'Entries',
   data: ()=>({
     focused: false,
-    shownEntries: [],
+    // shownEntries: [],
     searching: '',
   }),
   methods: {
@@ -66,9 +66,12 @@ export default {
       }
     }
   },
+  computed: {
+    shownEntries() {
+      return this.$root.entries.slice().reverse();
+    }
+  },
   created() {
-    this.shownEntries = this.$root.entries.slice().reverse()
-
     let lastSearching = this.searching;
     this.iid0 = setInterval(()=>{
       if(this.searching !== lastSearching){
