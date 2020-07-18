@@ -39,7 +39,8 @@ export function loadStorage() {
   const accessors = {
     entries: [],
     settings: {
-      "Haptic Feedback": true
+      "Haptic Feedback": true,
+      "Delete Entries": false
     },
   }
 

@@ -50,6 +50,9 @@ export default {
     "settings": {
       "Haptic Feedback": {
         "icon": "fas fa-wave-square"
+      },
+      "Delete Entries": {
+        "icon": "fas fa-trash"
       }
     }
   }),
@@ -61,8 +64,8 @@ export default {
 
 #header {
  display: inline-block;
- position:relative;
- float:left;
+ position: relative;
+ float: left;
  margin-top: 3vh;
 }
 
