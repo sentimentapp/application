@@ -61,7 +61,8 @@ export default {
   methods: {
     closeKeyboard() {
       if (this.focused) {
-        this.refs.textInput.blur()
+        console.log(this.focused)
+        // this.refs.textInput.blur()
       }
     }
   },

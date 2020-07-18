@@ -1,13 +1,29 @@
 <template>
 <div>
-    <div class="header" id="NewEntry">
-      <h1><router-link class= "exit" tag="button" to="/entries">&#8249; Exit</router-link> 
-      <button class= "save" @click="save">Done</button></h1>
+    <div class="header columns is-mobile" id="NewEntry">
+      <div class="column has-text-left">
+        <router-link class="exit" to="/entries"> 
+          <i class="fas fa-caret-left" style="margin-right: 8px"></i> 
+          Exit 
+        </router-link> 
+      </div>
+      <div class="column has-text-right">
+        <p class="save" @click="save">
+          Done
+          <i class="fas fa-check" style="margin-left: 8px"></i>
+        </p>
+      </div>
     </div>
-    <div>
-      <br>
-      <br>
-      <textarea placeholder=" Tell me about your day ..." rows="15" v-model="text" />
+    <div class="content">
+      <div id="getPrompt" class="hast-text-centered" @click="pickPrompt(); $root.hapticsVibrate();">
+        <i class="fas fa-lightbulb has-text-white" style="font-size: 12px; margin-top: 8px;"></i>
+      </div>
+      <div>
+        <p id="prompt" >{{ prompt }}</p>
+      </div>
+      <div>
+        <textarea rows="15" v-model="text" ref="input"/>
+      </div>
     </div>
   </div>
 </template>
@@ -15,11 +31,13 @@
 <script>
 import { emotions } from '@/modules/model.js'
 import router from '@/router'
+import { pickPrompt } from '@/modules/prompts.js'
 
 export default {
   name: 'NewEntry',
   data: ()=>({
     text: '',
+    prompt: 'Tell Me About Today'
   }),
   methods: {
     save() {
@@ -31,53 +49,90 @@ export default {
         })
         router.push('/entries')
       })
+    },
+    pickPrompt() {
+      this.prompt = pickPrompt();
     }
+  },
+  mounted() {
+    this.$refs.input.focus()
   }
 }
 </script>
 
 <style scoped>
+
+#getPrompt {
+  background: linear-gradient(180deg, #AFECE7 0%, #AFCFEC 100%);
+  box-shadow: 0px 2px 25px #AFCFEC;
+  width: 7vw;
+  height: 7vw;
+  border-radius: 50%;
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 7vw;  
+  margin-bottom: 16px;
+}
+
+#prompt {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 27px;
+  text-align: center;
+  padding: 0px 32px 0px 32px;
+  color: rgba(37, 40, 61, 0.1);
+}
+
+.content {
+  margin-top: 16vh;
+  display : block;
+}
+
 textarea {
-  padding: 20px;
-  width:90%;
-  height:90%;
-  border:1px;
+  position: relative;
+  padding: 32px;
+  width: 90%;
+  height: 20vh;
+  border: none;
+  outline: none;
+  font-family: Nunito;
+  background-color: #F6F9FF;
+  /* resize: none; */
+  color: rgba(37, 40, 61, 0.5);
+  font-size: 16px;
+  line-height: normal;
+  caret-color: #A8E7F4;
 }
 .header {
-  height:81px ;
   position: absolute;
-  top: 0px ;
-  right: 0px;
-  left: 0px;
+  width: 100vw;
+  height: 10vh;
+  top: 0;
+  margin: 0;
   background: #f6f9ff;
   box-shadow: 0px 1px 50px rgba(37, 40, 61, 0.1);
   border-radius: 0px 0px 16px 16px;
 }
-.content {
-  padding:0px;
-  background: #adadad;
-}
+
 .save{
-  border:none;
-  position: absolute;
-  right:20px;
-  top:44px;
-  background-color: #f6f9ff;
-  color: #afcfec;
+  color: #A8E7F4;
   font-family: Poppins;
-  Font-weight: bold;
-  font-size: 16px; 
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .exit{
-  border:none;
   position: absolute;
-  top:44px;
-  left:20px;
-  background-color:#f6f9ff;
-  color:lightgrey;
+  color:rgba(37, 40, 61, 0.1);;
   font-family: Poppins;
-  Font-weight: bold;
+  font-weight: bold;
   font-size: 16px; 
+}
+
+.column {
+  padding: 5vh 32px 0px 32px;
 }
 </style>
