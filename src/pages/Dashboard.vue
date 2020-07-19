@@ -148,6 +148,7 @@ export default {
 
 .section {
   padding-top: 0;
+  margin-bottom: 6vh;
 }
 
 #title {
