@@ -69,18 +69,13 @@ export default {
   computed: {
     shownEntries: {
       get() {
-        return this.entries.slice().reverse()
+        return (this.searching[0]==':' ? searchEmotion : searchText)(
+          this.$root.entries, this.searching
+        ).slice().reverse()
       },
       set(value) {
         this.entries = value
       }
-    }
-  },
-  watch: {
-    searching: function(newValue) {
-      this.shownEntries = (newValue[0]==':' ? searchEmotion : searchText)(
-        this.$root.entries, newValue
-      ).slice().reverse()
     }
   },
   created() {
