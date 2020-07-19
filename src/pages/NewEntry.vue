@@ -1,5 +1,5 @@
 <template>
-<div>
+  <div>
     <div class="header columns is-mobile" id="NewEntry">
       <div class="column has-text-left">
         <router-link class="exit" to="/entries"> 
@@ -9,7 +9,7 @@
       </div>
       <div class="column has-text-right">
         <p class="save" @click="save">
-          {{ saving ? "Saving..." : "Done" }}
+          {{ saving ? "Saving" : "Done" }}
           <i class="fas fa-check" style="margin-left: 8px"></i>
         </p>
       </div>
@@ -21,7 +21,7 @@
       <div>
         <p id="prompt" >{{ prompt }}</p>
       </div>
-      <div>
+      <div style="padding: 32px;">
         <textarea rows="15" v-model="text" ref="input"/>
       </div>
     </div>
@@ -72,13 +72,13 @@ export default {
 #getPrompt {
   background: linear-gradient(180deg, #AFECE7 0%, #AFCFEC 100%);
   box-shadow: 0px 2px 25px #AFCFEC;
-  width: 7vw;
-  height: 7vw;
+  width: 8vw;
+  height: 8vw;
   border-radius: 50%;
   margin: auto;
   text-align: center;
   vertical-align: middle;
-  line-height: 7vw;  
+  line-height: 8vw;  
   margin-bottom: 16px;
 }
 
@@ -100,7 +100,6 @@ export default {
 
 textarea {
   position: relative;
-  padding: 32px;
   width: 90%;
   height: 20vh;
   border: none;
@@ -116,7 +115,7 @@ textarea {
 .header {
   position: absolute;
   width: 100vw;
-  height: 10vh;
+  height: 12vh;
   top: 0;
   margin: 0;
   background: #f6f9ff;

@@ -20,7 +20,7 @@ const data = {
   emojis: {
     'happy': '😃',
     'sad': '😔',
-    'excited': '😠',
+    'angry': '😠',
     'bored': '😒',
   },
 }
