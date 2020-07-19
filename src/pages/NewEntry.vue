@@ -115,7 +115,7 @@ textarea {
 .header {
   position: absolute;
   width: 100vw;
-  height: 12vh;
+  height: 11vh;
   top: 0;
   margin: 0;
   background: #f6f9ff;
@@ -139,6 +139,6 @@ textarea {
 }
 
 .column {
-  padding: 5vh 32px 0px 32px;
+  padding: 5vh 32px 10px 32px;
 }
 </style>
