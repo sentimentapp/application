@@ -1,11 +1,17 @@
 <template>
   <div class="section">
-    <div class="card" id="stats">
-      <p>Stats</p>
+    <div class="card" data-aos="fade-up" data-aos-duration="1000" id="stats">
+      <h3 class="date has-text-centered has-text-weight-bold">{{ splicedDate }}</h3>
+      <div class="columns is-mobile">
+        <div class="column is-size-6" v-for="emotion in entry.emotions" :key="emotion">
+          {{ $root.emojis[emotion] }}
+          <br>
+          {{ emotion.charAt(0).toUpperCase() + emotion.slice(1) }}
+        </div>
+      </div>
     </div>
-    <div class="card" id="entry">
+    <div class="card" data-aos="fade-up" data-aos-duration="1000" id="entry">
       <div class="scrollContainer">
-        <h3 class="date has-text-left has-text-weight-bold"> {{this.emojis[entry.emotions[0]]}} {{ this.splicedDate }}</h3>
         <p class="entryText has-text-left">{{ entry.text }}</p>
       </div>
     </div>
@@ -21,12 +27,6 @@ export default {
       date: new Date(0),
       text: "Loading...",
       emotions: ["Loading..."],
-    },
-    emojis: {
-      'happy': '😃',
-      'sad': '😔',
-      'excited': '😠',
-      'bored': '😒',
     },
     splicedDate: ''
   }),
@@ -45,15 +45,16 @@ export default {
     // Makes the date more readable
     // Moved this to a place where it works
     var spliced = this.entry.date.toDateString().split(' ')
-    this.splicedDate = spliced[1] + ' ' + spliced[2]
+    console.log(spliced)
+    this.splicedDate = spliced[1] + ' ' + spliced[2] + ", " + spliced[3]
   }
 }
 </script>
 
 <style scoped>
 .section {
-  padding-top: 1vh;
-  padding-bottom: 0px;
+  padding-top: 0.25vh;
+  margin-bottom: 6vh;
 }
 
 .card {
@@ -72,7 +73,7 @@ export default {
 }
 
 #entry {
-  height: 45vh;
+  height: 40vh;
   padding-bottom: 16px;
   
 }
@@ -84,7 +85,7 @@ export default {
 }
 
 #stats {
-  height: 15vh;
+  min-height: 10vh;
 }
 
 </style>
