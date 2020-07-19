@@ -29,7 +29,13 @@ const createAccessor = (name, data)=>(
       setItem(name, data)
       // Return true to accept the changes
       return true
-    }
+    },
+    // Refer to above comments
+    deleteProperty(){
+      Reflect.deleteProperty(...arguments)
+      setItem(name, data)
+      return true
+    },
   })
 )
 
