@@ -82,7 +82,6 @@ export default {
       var week = statistics(this.$root.entries)['week']
       function sortByPercentage(a, b) {
         if ( week[a] > week[b] ){
-          console.log(a)
           return -1;
         }
         else if ( week[a] < week[b] ){
