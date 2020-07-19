@@ -2,10 +2,10 @@
   <div class="card">
     <div>
       <div class="columns is-mobile" @click="click($event);">
-        <div class="column is-one-fifth" @click="click();">
+        <div class="column is-one-fifth">
           <p class="emoji">{{$root.emojis[entry.emotions[0]]}}</p>
         </div>
-        <div class="column" @click="click();" :class="columnSize">
+        <div class="column" :class="columnSize">
           <h3 class="date has-text-left has-text-weight-bold">{{ this.splicedDate }}</h3>
           <p class="entryText has-text-left">{{ entry.text }}</p>
         </div>
@@ -31,6 +31,7 @@ export default {
   }),
   methods: {
     click(event) {
+      console.log(event)
       if (event.target.tagName.toLowerCase() != "i") {
         this.$root.hapticsVibrate();
         router.push('/entries/'+this.$root.entries.indexOf(this.entry))
@@ -86,7 +87,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 8px;
+  padding: 16px;
   font-size: 18px;
 }
 
