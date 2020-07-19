@@ -31,7 +31,6 @@ export default {
   }),
   methods: {
     click(event) {
-      console.log(event)
       if (event.target.tagName.toLowerCase() != "i") {
         this.$root.hapticsVibrate();
         router.push('/entries/'+this.$root.entries.indexOf(this.entry))
