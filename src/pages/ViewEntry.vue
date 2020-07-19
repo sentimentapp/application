@@ -45,7 +45,6 @@ export default {
     // Makes the date more readable
     // Moved this to a place where it works
     var spliced = this.entry.date.toDateString().split(' ')
-    console.log(spliced)
     this.splicedDate = spliced[1] + ' ' + spliced[2] + ", " + spliced[3]
   }
 }
