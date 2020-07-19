@@ -1,6 +1,7 @@
 export function emotions(text){
-  const es = (text.match(/e/g)||[]).length;
-  const ts = (text.match(/t/g)||[]).length;
+  text
+  const es = Math.floor(Math.random() * 2); 
+  const ts = Math.floor(Math.random() * 2); 
   return new Promise((r)=>{
     setTimeout(()=>{
       r([
