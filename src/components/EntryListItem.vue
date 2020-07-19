@@ -3,7 +3,7 @@
     <div>
       <div class="columns is-mobile" @click="click($event);">
         <div class="column is-one-fifth" @click="click();">
-          <p class="emoji">{{this.emojis[entry.emotions[0]]}}</p>
+          <p class="emoji">{{$root.emojis[entry.emotions[0]]}}</p>
         </div>
         <div class="column" @click="click();" :class="columnSize">
           <h3 class="date has-text-left has-text-weight-bold">{{ this.splicedDate }}</h3>
@@ -26,12 +26,6 @@ export default {
   name: 'EntryListItem',
   props: ['entry'],
   data: ()=>({
-    emojis: {
-      'happy': '😃',
-      'sad': '😔',
-      'excited': '😠',
-      'bored': '😒',
-    },
     columnSize: null,
     splicedDate: ''
   }),
