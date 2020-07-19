@@ -17,6 +17,12 @@ const data = {
   storageLoaded: false,
   entries: [],
   settings: {},
+  emojis: {
+    'happy': '😃',
+    'sad': '😔',
+    'excited': '😠',
+    'bored': '😒',
+  },
 }
 
 // Imports animation componenets
