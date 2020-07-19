@@ -55,8 +55,8 @@ export default {
   name: 'Entries',
   data: ()=>({
     focused: false,
-    // shownEntries: [],
     searching: '',
+    entries: []
   }),
   methods: {
     closeKeyboard() {
@@ -67,23 +67,24 @@ export default {
     }
   },
   computed: {
-    shownEntries() {
-      return this.$root.entries.slice().reverse();
+    shownEntries: {
+      get() {
+        return this.entries.slice().reverse()
+      },
+      set(value) {
+        this.entries = value
+      }
+    }
+  },
+  watch: {
+    searching: function(newValue) {
+      this.shownEntries = (newValue[0]==':' ? searchEmotion : searchText)(
+        this.$root.entries, newValue
+      ).slice().reverse()
     }
   },
   created() {
-    let lastSearching = this.searching;
-    this.iid0 = setInterval(()=>{
-      if(this.searching !== lastSearching){
-        this.shownEntries = (this.searching[0]==':' ? searchEmotion : searchText)(
-          this.$root.entries, this.searching
-        ).slice().reverse()
-      }
-      lastSearching = this.searching;
-    }, 1000)
-  },
-  destroyed() {
-    clearInterval(this.iid0)
+    this.entries = this.$root.entries
   },
 }
 </script>
