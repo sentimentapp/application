@@ -49,7 +49,7 @@
           </div>
       </div>
       <div class="columns is-mobile weekEntries">
-        <div data-aos="fade-up" data-aos-duration="1000" class="card column entry" v-for="entry in recentEntries" :key="entry.date.toString()">
+        <div @click="navigateToEntry(entry);" data-aos="fade-up" data-aos-duration="1000" class="card column entry" v-for="entry in recentEntries" :key="entry.date.toString()">
           <p class="weekEntry">
             {{$root.emojis[entry.emotions[0]]}}    
             <a style="margin-left: 6px;" class="has-text-dark">{{getDate(entry.date)}}</a>
@@ -116,7 +116,11 @@ export default {
     getDate(date) {
       var spliced = date.toDateString().split(' ')
       return spliced[1] + ' ' + spliced[2]
-    }
+    },
+    navigateToEntry(entry) {
+      this.$root.hapticsVibrate();
+      this.$router.push('/entries/'+this.$root.entries.indexOf(entry))
+    },
   }
 }
 </script>
