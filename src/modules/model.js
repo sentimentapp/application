@@ -1,7 +1,7 @@
 export function emotions(text){
   text
-  const es = Math.floor(Math.random() * 2); 
-  const ts = Math.floor(Math.random() * 2); 
+  const es = Math.floor(Math.random() * 2)
+  const ts = Math.floor(Math.random() * 2)
   return new Promise((r)=>{
     setTimeout(()=>{
       r([
@@ -9,5 +9,5 @@ export function emotions(text){
         (ts%2) ? 'angry' : 'bored',
       ])
     }, 1000)
-  });
+  })
 }
