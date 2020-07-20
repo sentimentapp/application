@@ -15,11 +15,13 @@
       </div>
     </div>
     <div class="content">
-      <div id="getPrompt" class="has-text-centered" @click="pickPrompt();">
-        <i class="fas fa-lightbulb has-text-white" style="font-size: 12px; margin-top: 8px;"></i>
-      </div>
-      <div>
-        <p id="prompt" >{{ prompt }}</p>
+      <div :style="{ opacity: opacity + '%'}">
+        <div id="getPrompt" class="has-text-centered" @click="pickPrompt();">
+          <i class="fas fa-lightbulb has-text-white" style="font-size: 12px; margin-top: 8px;"></i>
+        </div>
+        <div>
+          <p id="prompt" >{{ prompt }}</p>
+        </div>
       </div>
       <div style="padding: 32px;">
         <textarea rows="15" v-model="text" ref="input"/>
@@ -65,6 +67,15 @@ export default {
   },
   mounted() {
     this.$refs.input.focus()
+  },
+  computed: {
+    opacity() {
+      if(this.$root.settings["Disappearing Prompt"]) {
+        return 100-this.text.length
+      } else {
+        return 100
+      }
+    }
   }
 }
 </script>
