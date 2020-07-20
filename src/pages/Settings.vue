@@ -53,6 +53,9 @@ export default {
       },
       "Delete Entries": {
         "icon": "fas fa-trash"
+      },
+      "Disappearing Prompt": {
+        "icon": "fas fa-ghost"
       }
     }
   }),

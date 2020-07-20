@@ -46,7 +46,8 @@ export function loadStorage() {
     entries: [],
     settings: {
       "Haptic Feedback": true,
-      "Delete Entries": false
+      "Delete Entries": false,
+      "Disappearing Prompt": true
     },
   }
 
