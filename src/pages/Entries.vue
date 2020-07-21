@@ -24,8 +24,8 @@
       <div id="exitKeyboard" @click="closeKeyboard()" v-if="focused"></div> 
     </div>
     <div class="section">
-      <div data-aos="fade-up" data-aos-duration="1000" class="entries" v-for="entry in shownEntries" :key="entry.date.toString()">
-        <EntryListItem :entry=entry />
+      <div data-aos="fade-up" data-aos-duration="1000" class="entries" v-for="entry in $root.entries.slice().reverse()" :key="entry.date.toString()">
+        <EntryListItem v-if="matches(entry)" :entry=entry />
       </div>
     </div>
   </div>
@@ -34,21 +34,24 @@
 <script>
 
 import EntryListItem from '@/components/EntryListItem'
+import AOS from 'aos'
 
-const searchEmotion = (entries, emo)=>{
-  const search = emo.replace(/\W/g, '').toLowerCase();
-  return entries.filter((entry)=>(
-    entry.emotions.includes(search)
-  ))
+const clean = (text)=>( text.replace(/\W/g,'').toLowerCase() )
+
+// this is bad code, don't look
+const hasDate = (entry, search)=>{
+  const ds = entry.date.toDateString()
+  return clean(ds.substr(ds.indexOf(' ')+1)).indexOf(clean(search)) > -1
+  // That removes the weekday from the date
 }
 
-const searchText = (entries, text)=>{
-  const search = text.replace(/\W/g, '').toLowerCase();
-  return entries.filter((entry)=>(
-    entry.text.replace(/\W/g, '').toLowerCase()
-      .indexOf(search)>-1
-  ))
-}
+const hasEmotion = (entry, search)=>(
+  entry.emotions.includes(clean(search))
+)
+
+const hasText = (entry, search)=>(
+  clean(entry.text).indexOf(clean(search)) > -1
+)
 
 export default {
   components: {EntryListItem},
@@ -56,30 +59,22 @@ export default {
   data: ()=>({
     focused: false,
     searching: '',
-    entries: []
   }),
   methods: {
-    closeKeyboard() {
+    closeKeyboard() { // does nothing rn
       if (this.focused) {
         console.log(this.focused)
         // this.refs.textInput.blur()
       }
-    }
+    },
+    matches(entry) {
+      return hasEmotion(entry, this.searching) || 
+             hasText(entry, this.searching) ||
+             hasDate(entry, this.searching)
+    },
   },
-  computed: {
-    shownEntries: {
-      get() {
-        return (this.searching[0]==':' ? searchEmotion : searchText)(
-          this.$root.entries, this.searching
-        ).slice().reverse()
-      },
-      set(value) {
-        this.entries = value
-      }
-    }
-  },
-  created() {
-    this.entries = this.$root.entries
+  updated(){
+    AOS.refresh()
   },
 }
 </script>

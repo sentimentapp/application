@@ -12,9 +12,10 @@ const setItem = (key, value)=>(
 
 // Retrieves a value from storage, then parses or falls back
 const getItem = (key, fallback)=>(
-  Storage.get({ key }).then(({ value })=>(
-    value ? JSON.parse(value) : fallback
-  ))
+  Storage.get({ key }).then(({ value })=>{
+    const thing = value ? JSON.parse(value) : fallback;
+    return Object.assign(fallback, thing); // Keeps new values?
+  })
 )
 
 // Returns an object that automatically backs up to local storage when changed
