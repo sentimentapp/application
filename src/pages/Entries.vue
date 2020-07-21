@@ -41,7 +41,7 @@ const clean = (text)=>( text.replace(/\W/g,'').toLowerCase() )
 // this is bad code, don't look
 const hasDate = (entry, search)=>{
   const ds = entry.date.toDateString()
-  clean(ds.substr(ds.indexOf(' ')+1)).indexOf(clean(search)) > -1
+  return clean(ds.substr(ds.indexOf(' ')+1)).indexOf(clean(search)) > -1
   // That removes the weekday from the date
 }
 
