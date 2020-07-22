@@ -1,5 +1,5 @@
 # Sentiment
-View our project here! https://www.youtube.com/watch?v=nCXgkcDG2nc
+Watch a video of our project here! https://www.youtube.com/watch?v=nCXgkcDG2nc (App before the machine learning model is integrated)
 
 ## Project setup
 ```
