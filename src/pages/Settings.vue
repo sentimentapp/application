@@ -38,6 +38,13 @@
           </div>
         </div>
       </div>
+      <div class="card privacy" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="200">
+        <i class="fas fa-user-shield has-text-gradient" style="font-size: 16px;"></i>
+        <p class="has-text-weight-bold" style="font-family: Poppins">Privacy</p>
+        <p style="padding-top: 16px; color: rgba(37, 40, 61, 0.5);">
+          Just like a paper journal, you're the only one who should see your personal feelings. All entries are stored and processed locally on device to keep your data safe.
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -90,6 +97,7 @@ export default {
 
 .card {
   padding: 0px 32px 0px 32px;
+  margin-bottom: 3vh;
 }
 
 .settings-section {
@@ -98,5 +106,12 @@ export default {
 
 .section {
   padding-top: 0px;
+  margin-bottom: 10vh;
+}
+
+.privacy {
+  padding: 36px 8vw 36px 8vw;
+  font-size: 14px;
+  font-family: Nunito;
 }
 </style>
