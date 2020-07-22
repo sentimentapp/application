@@ -1,7 +1,7 @@
 import * as utils from './utils'
-import * as tf from 'tfjs'
+import * as tf from '@tensorflow/tfjs'
 
-class WordEmbeddings {
+export class WordEmbeddings {
   constructor(codes, centroids, vocabulary) {
     this.vocabulary = vocabulary
     this.centroids = centroids
@@ -11,7 +11,7 @@ class WordEmbeddings {
   // Return the vector representation of a word as a tensor
   _getVector(word) {
     let index = this.vocabulary.indexOf(word)
-    if (index === -1) return tf.zeroes([this.codes.shape[1]*this.centroids.shape[2]])
+    if (index === -1) return tf.zeros([this.codes.shape[1]*this.centroids.shape[2]])
     let codes = this._getSearchVector(index)
     let indices = tf.range(0, this.codes.shape[1], 1, 'int32')
     let search = tf.stack([indices, codes], -1)
@@ -23,13 +23,13 @@ class WordEmbeddings {
       return this.codes.gather([index]).as1D()
   }
 
-  _transformSequence(words, sequenceLength) {
+  transformSequence(words, sequenceLength) {
     let vectors = []
     for (let i = 0; i < words.length; i++) {
       vectors.push(this._getVector(words[i]))
     }
     let sequence = tf.stack(vectors)
-    sequence = sequence.pad([[sequenceLength - words.leght, 0], [0, 0]])
+    sequence = sequence.pad([[sequenceLength - words.length, 0], [0, 0]])
     return sequence
   }
 
@@ -39,8 +39,7 @@ class WordEmbeddings {
   }
 }
 
-export const loadModel = async url => {
-  const model = await utils.fetchModel(url)
+export const loadModel = async model => {
   console.log("Unpacking codes")
   let codes = utils.unpackVectors(model.codes, 'int32')
   await tf.nextFrame()
