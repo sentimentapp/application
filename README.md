@@ -1,4 +1,5 @@
-# sentiment-application
+# Sentiment
+View our project here! https://www.youtube.com/watch?v=nCXgkcDG2nc
 
 ## Project setup
 ```
