@@ -30,6 +30,7 @@ export class WordEmbeddings {
     }
     let sequence = tf.stack(vectors)
     sequence = sequence.pad([[sequenceLength - words.length, 0], [0, 0]])
+    console.log(sequence.arraySync())
     return sequence
   }
 
@@ -39,7 +40,8 @@ export class WordEmbeddings {
   }
 }
 
-export const loadModel = async model => {
+export const loadModel = async url => {
+  const model = await utils.fetchModel(url)
   console.log("Unpacking codes")
   let codes = utils.unpackVectors(model.codes, 'int32')
   await tf.nextFrame()

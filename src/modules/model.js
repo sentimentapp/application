@@ -1,31 +1,23 @@
 import * as embeddings from './model/embeddings'
-import wordEmbeddingsObject from './model/pretrained/word-embeddings.object.js'
 import * as tf from '@tensorflow/tfjs'
-
-let sentimentModel, wordEmbeddings
 
 const maxEntryLength = 15
 const maxSentenceLength = 70
+const embeddingDimensions = 300
 
-export function emotions(text){
-  text
-  const es = Math.floor(Math.random() * 2)
-  const ts = Math.floor(Math.random() * 2)
-  return new Promise((r)=>{
-    setTimeout(()=>{
-      r([
-        (es%2) ? 'happy' : 'sad',
-        (ts%2) ? 'angry' : 'bored',
-      ])
-    }, 1000)
-  })
+export async function emotions(text){
+  let sentiments = await classifySentiment(sentences(text))
+  return [
+    (sentiments[0] > 3) ? 'happy' : 'sad',
+    (sentiments[1] > 3) ? 'angry' : 'bored',
+  ]
 }
 
 async function loadModel() {
-  const sentimentModel = await tf.loadLayersModel('model.json')
-  const wordEmbeddings = await embeddings.loadModel(wordEmbeddingsObject)
-
-  return sentimentModel, wordEmbeddings
+  const sM = await tf.loadLayersModel('/model.json')
+  const wE = await embeddings.loadModel('/word-embeddings.json')
+  console.log(wE)
+  return [sM, wE]
 }
 
 let zeros = dimensions => {
@@ -38,15 +30,28 @@ let zeros = dimensions => {
   return array;
 }
 
-loadModel().then(res => { sentimentModel, wordEmbeddings = res }).then(classifySentiment(['summer', 'breeze', 'makes', 'me', 'feel', 'fine']).then(console.log))
+let sentences = inp => {
+  var words = inp.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|")
+  for (let i in words) {
+      words[i] = words[i].toLowerCase();
+      words[i] = words[i].replace(/[.?!,;:()/]/g,"")
+      words[i] = words[i].split(' ')
+  }
+  return words
+}
 
 async function classifySentiment(inputText) {
-  let inputSequence = zeros([maxEntryLength, maxSentenceLength])
+  let [sentimentModel, wordEmbeddings] = await loadModel()
+  let inputSequence = zeros([maxEntryLength, maxSentenceLength, embeddingDimensions])
   for (let i = 1; i <= inputText.length; i++) {
-    inputSequence[inputSequence.length - i] = wordEmbeddings.transformSequence(inputText[inputText.length - i], maxSentenceLength)
+    let y = wordEmbeddings.transformSequence(inputText[inputText.length - i], maxSentenceLength)
+    console.log(typeof y)
+    inputSequence[inputSequence.length - i] = y
   }
-  console.log(inputSequence)
-  const predictOut = sentimentModel.predict(inputSequence.expandDims(0))
-  const score = predictOut.dataSync()[0]
+  const predictOut = sentimentModel.predict(tf.tensor([inputSequence]))
+  const score = await predictOut.data()
   return score
 }
+
+
+//classifySentiment(sentences("The next step is making sure that a body of text can be passed into the embedding layer which shouldn't be too hard. In order for the text to be processed by the Keras embedding layer it needs to be converted to a list of numbers that correspond with the words in the text. There is already a framework in place to do this within the code, so I will try to finish that before next meeting")).then(res => console.log(res))
