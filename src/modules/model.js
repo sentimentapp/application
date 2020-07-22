@@ -13,12 +13,21 @@ export async function emotions(text){
   ]
 }
 
-async function loadModel() {
-  const sM = await tf.loadLayersModel('/model.json')
-  const wE = await embeddings.loadModel('/word-embeddings.json')
-  console.log(wE)
-  return [sM, wE]
-}
+const loadModel = (()=>{
+  let loaded = false
+  let sM, wE
+  return async function loadModel() {
+    if(!loaded){
+      console.log("LOADING MODEL")
+      sM = await tf.loadLayersModel('/model.json')
+      wE = await embeddings.loadModel('/word-embeddings.json')
+      loaded = true
+    }else{
+      console.log("ALREADY LOADED")
+    }
+    return [sM, wE]
+  }
+})()
 
 let zeros = dimensions => {
   let array = [];
