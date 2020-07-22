@@ -7493,6 +7493,9 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   box-shadow: 0px 1px 50px rgba(0, 0, 0, 0.05);
   border-radius: 1.5vh; }
 
+.section {
+  margin-bottom: 6vh; }
+
 .switch {
   position: relative;
   display: inline-block;
