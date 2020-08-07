@@ -1,6 +1,8 @@
 # Sentiment
-Watch a video of our project here! https://www.youtube.com/watch?v=nCXgkcDG2nc (App before the machine learning model is integrated)
-Machine Learning Model: https://colab.research.google.com/drive/1eP9K5_t1t4esuj4gbdUhHiLMqqBkZ9Jt?usp=sharing#scrollTo=LX8bvoU6kwJk
+- Watch a video of our project here! https://www.youtube.com/watch?v=nCXgkcDG2nc (This is a video of the application before our machine learning model was integrated)
+- Machine Learning Model: https://colab.research.google.com/drive/1eP9K5_t1t4esuj4gbdUhHiLMqqBkZ9Jt?usp=sharing#scrollTo=LX8bvoU6kwJk
+- Slide deck for our application https://docs.google.com/presentation/d/1n-H6MCLJjlm7aM9_NGkeRTPwSmjQ_3sKZacZwBd-jmQ/edit?usp=sharing
+- https://cstart.mines.edu/c4g/
 
 ## Project setup
 ```
