@@ -73,8 +73,8 @@ export default {
       "color: #AFCFEC"
     ],
     positiveEmotions: [
-      'happy',
-      'dope'
+      'joy',
+      'love'
     ]
   }),
   computed: {

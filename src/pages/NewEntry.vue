@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { emotions } from '@/modules/model.js'
+import { model_predict } from '@/modules/model/model.js'
 import router from '@/router'
 import { pickPrompt } from '@/modules/prompts.js'
 
@@ -46,29 +46,39 @@ export default {
     save() {
       // Do not save twice
       if(this.saving) return;
+
       // Do not save empty entries
       if(!this.text.replace(/\W/g, '')) return;
+
+      // Sets the saving variable to true because it is an async. function
       this.saving = true;
-      emotions(this.text).then((emos)=>{
+
+      // Model function
+      model_predict(this.text).then((emotions)=>{
         this.$root.entries.push({
           date: new Date(),
           text: this.text,
-          emotions: emos,
+          emotions: emotions,
         })
         router.push('/entries')
       }).catch(()=>{ this.saving=false })
       // ^ Allow retry if saving fails
     },
+
     pickPrompt() {
       this.$refs.input.focus()
       this.prompt = pickPrompt();
       this.$root.hapticsVibrate();
     }
   },
+
   mounted() {
+    // Brings up the keyboard when the input page is opened
     this.$refs.input.focus()
   },
+
   computed: {
+    // Makes the prompt disapper as the user types
     opacity() {
       if(this.$root.settings["Disappearing Prompt"]) {
         return 100-this.text.length

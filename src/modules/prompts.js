@@ -1,5 +1,5 @@
 
-let prompts = ["How was your Day?", "What is one word to describe your whole day?", "Write down the first 10 things that come to your mind", "What was the 1 best part of your day and the 1 worst part of your day?"];
+let prompts = ["How Was Your Day?", "What is One Word to Describe Your day?", "Write Down the First 10 Things that Come to Your mind", "What was the Best Part of your Day? What was the Worst Part?"];
 
 export function pickPrompt() {
     var x = Math.floor(Math.random() * prompts.length);  

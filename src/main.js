@@ -18,10 +18,11 @@ const data = {
   entries: [],
   settings: {},
   emojis: {
-    'happy': '😃',
-    'sad': '😔',
-    'angry': '😠',
-    'bored': '😒',
+    'joy': '😃',
+    'sadness': '😔',
+    'anger': '😠',
+    'love': '🥰',
+    'anxiety': '😣'
   },
 }
 
