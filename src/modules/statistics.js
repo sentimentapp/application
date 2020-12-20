@@ -4,14 +4,14 @@ const daysAgo = (days)=>(
 )
 
 // All entries within time period
-const timePeriod = (entries, days)=>{
+const timePeriod = (entries, days)=> {
   const start = daysAgo(days)
   return entries.filter((entry)=>(
     entry.date.getTime() > start
   ))
 }
 
-const analyzeEmotions = (entries)=>{
+const analyzeEmotions = (entries)=> {
   // List all emotions througout entries
   const allEmos = entries
     .map((entry)=>(entry.emotions))

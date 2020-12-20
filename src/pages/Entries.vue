@@ -36,7 +36,7 @@
 import EntryListItem from '@/components/EntryListItem'
 import AOS from 'aos'
 
-const clean = (text)=>( text.replace(/\W/g,'').toLowerCase() )
+const clean = (text) => ( text.replace(/\W/g,'').toLowerCase() )
 
 // this is bad code, don't look
 const hasDate = (entry, search)=>{
