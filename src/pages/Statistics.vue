@@ -27,7 +27,7 @@
         <input type="checkbox" v-model="month" @click="$root.hapticsVibrate();">
         <span class="slider round"></span>
       </label>
-      <div class="stats card columns is-mobile" data-aos="fade-up" data-aos-duration="1000">
+      <div class="stats card columns is-mobile" data-aos="fade-up" data-aos-duration="1000"  v-if='$root.entries.length != 0'>
         <div v-for="emotion in weeklyPercentage" :key="emotion">
           <chart :percentage=convertToPercentage(emotion) />
           <p class="label">{{ emotion.charAt(0).toUpperCase() + emotion.slice(1) }}</p>

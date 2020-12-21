@@ -15,6 +15,7 @@ Vue.config.productionTip = false
 // Stores the data
 const data = {
   storageLoaded: false,
+  modelLoaded: false,
   entries: [],
   settings: {},
   emojis: {
@@ -22,8 +23,10 @@ const data = {
     'sadness': '😔',
     'anger': '😠',
     'love': '🥰',
-    'anxiety': '😣'
+    'anxiety': '😣',
+    'neutral': '😐'
   },
+  model: ""
 }
 
 // Imports animation componenets
@@ -37,8 +40,8 @@ AOS.init()
 window.screen.orientation.lock('portrait')
 
 // Checks to see if the data is loaded before sending the user to a page
-router.beforeEach((to,_,next)=>{
-  if (data.storageLoaded || to.path === '/loading') next()
+router.beforeEach((to, _, next)=>{
+  if ((data.storageLoaded && data.modelLoaded) || to.path === '/loading') next()
   else router.replace({
     path: '/loading',
     query: { redirect:to.path }

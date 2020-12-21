@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { model_predict } from '@/modules/model/model.js'
+import { model_predict } from '@/modules/model/run_model.js'
 import router from '@/router'
 import { pickPrompt } from '@/modules/prompts.js'
 
@@ -54,7 +54,7 @@ export default {
       this.saving = true;
 
       // Model function
-      model_predict(this.text).then((emotions)=>{
+      model_predict(this.text, this.$root.model).then((emotions)=>{
         this.$root.entries.push({
           date: new Date(),
           text: this.text,
