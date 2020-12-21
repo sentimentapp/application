@@ -24,7 +24,8 @@ const data = {
     'anger': '😠',
     'love': '🥰',
     'anxiety': '😣',
-    'neutral': '😐'
+    'neutral': '😐',
+    'surprise': '😮'
   },
   model: ""
 }
