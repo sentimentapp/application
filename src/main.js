@@ -23,7 +23,7 @@ const data = {
     'sadness': '😔',
     'anger': '😠',
     'love': '🥰',
-    'anxiety': '😣',
+    'fear': '😨',
     'neutral': '😐',
     'surprise': '😮'
   },

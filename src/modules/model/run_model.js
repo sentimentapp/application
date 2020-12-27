@@ -1,7 +1,7 @@
 // Imports Tensorflowjs
 import * as tf from '@tensorflow/tfjs'
 
-var index_labels = ['sadness', 'anger', 'love', 'surprise', 'anxiety', 'joy', 'neutral']
+var index_labels = ['sadness', 'anger', 'love', 'surprise', 'fear', 'joy', 'neutral']
 
 // Gets the JSON BERT Dictionary
 const vocab = fetch('./transformer_model/vocab.json').then((dictionary) => {

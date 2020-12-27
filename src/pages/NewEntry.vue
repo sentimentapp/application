@@ -8,7 +8,7 @@
         </router-link> 
       </div>
       <div class="column has-text-right">
-        <p class="save" @click="save">
+        <p class="save" @click="save(); $root.hapticsVibrate()">
           {{ saving ? "Saving" : "Done" }}
           <i class="fas fa-check" style="margin-left: 8px"></i>
         </p>
