@@ -2,31 +2,18 @@
     <img src="https://github.com/sentimentapp/application/raw/master/src/assets/logo.png" width="400"/>
 <p>
 <br>
-- Watch a video of our project [here](https://youtu.be/Po-BH-1kRBw)! While the video isn't to flashy, it does show the current state of the actual application.
-- Machine Learning Model: https://colab.research.google.com/drive/1eP9K5_t1t4esuj4gbdUhHiLMqqBkZ9Jt?usp=sharing#scrollTo=LX8bvoU6kwJk
-- Slide deck for our application https://docs.google.com/presentation/d/1n-H6MCLJjlm7aM9_NGkeRTPwSmjQ_3sKZacZwBd-jmQ/edit?usp=sharing
-- https://cstart.mines.edu/c4g/
-- UI/UX Mockup https://www.figma.com/file/vII04Xd1Q8r208ztIRiuIK/Sentiment-Mockup?node-id=0%3A1
 
-## Project setup
-```
-npm install
-```
+## What is Sentiment?
+Sentiment is journaling app that uses machine learning to classify the emotions of its entries to help the user track their mental state. Created by a group of students interning with the [C4G program at the Colorado Schools of Mines](https://cstart.mines.edu/c4g/), Sentiment was created in the hopes that it could help its user to more activily manage their emotions. Though the internship is officialy over, this project is still in development.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Resources
+- [Application Slide Deck](https://docs.google.com/presentation/d/1n-H6MCLJjlm7aM9_NGkeRTPwSmjQ_3sKZacZwBd-jmQ/edit?usp=sharing)
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### UI/UX Design
+- [UI/UX Mockup](https://www.figma.com/file/vII04Xd1Q8r208ztIRiuIK/Sentiment-Mockup?node-id=0%3A1)
 
-### Lints and fixes files
-```
-npm run lint
-```
+### Application
+- [Working Application Video](https://youtu.be/Po-BH-1kRBw)
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### ML Models
+- [Repository with Different Experimental Models](https://github.com/sentimentapp/core)
