@@ -1,4 +1,7 @@
-# Sentiment
+<p align="center">
+    <img src="https://github.com/sentimentapp/application/raw/master/src/assets/logo.png" width="400"/>
+<p>
+<br>
 - Watch a video of our project [here](https://youtu.be/Po-BH-1kRBw)! While the video isn't to flashy, it does show the current state of the actual application.
 - Machine Learning Model: https://colab.research.google.com/drive/1eP9K5_t1t4esuj4gbdUhHiLMqqBkZ9Jt?usp=sharing#scrollTo=LX8bvoU6kwJk
 - Slide deck for our application https://docs.google.com/presentation/d/1n-H6MCLJjlm7aM9_NGkeRTPwSmjQ_3sKZacZwBd-jmQ/edit?usp=sharing
