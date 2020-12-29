@@ -4,7 +4,7 @@
 <br>
 
 ## What is Sentiment?
-Sentiment is journaling app that uses machine learning to classify the emotions of its entries to help the user track their mental state. Created by a group of students interning with the [C4G program at the Colorado Schools of Mines](https://cstart.mines.edu/c4g/), Sentiment was created in the hopes that it could help its user to more activily manage their emotions. Though the internship is officialy over, this project is still in development.
+Sentiment is journaling app that uses machine learning to classify the emotions of its entries to help the user track their mental state. Created by a group of students interning with the [C4G program at the Colorado Schools of Mines](https://cstart.mines.edu/c4g/), Sentiment was created in the hopes that it could help its users to more activily manage their emotions. Though the internship is officialy over, this project is still in development.
 
 ## Resources
 - [Application Slide Deck](https://docs.google.com/presentation/d/1n-H6MCLJjlm7aM9_NGkeRTPwSmjQ_3sKZacZwBd-jmQ/edit?usp=sharing)
