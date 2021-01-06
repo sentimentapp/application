@@ -4,7 +4,7 @@
 <br>
 
 ## What is Sentiment?
-Sentiment is journaling app that uses machine learning to classify the emotions of its entries to help the user track their mental state. Created by a group of students interning with the [C4G program at the Colorado Schools of Mines](https://cstart.mines.edu/c4g/), Sentiment was created in the hopes that it could help its users to more activily manage their emotions. Though the internship is officialy over, this project is still in development.
+Sentiment is journaling app that uses machine learning to classify the emotions of its entries to help the user track their mental state. Created by a group of students interning with the [C4G program at the Colorado Schools of Mines](https://cstart.mines.edu/c4g/), Sentiment was created in the hopes that it could help its users to more actively manage their emotions. Though the internship is officialy over, this project is still in development.
 
 ## Resources
 - [Application Slide Deck](https://docs.google.com/presentation/d/1n-H6MCLJjlm7aM9_NGkeRTPwSmjQ_3sKZacZwBd-jmQ/edit?usp=sharing)
@@ -17,7 +17,7 @@ Sentiment is journaling app that uses machine learning to classify the emotions 
 
 ### Application
 - [Working Application Video](https://youtu.be/Po-BH-1kRBw)
-    - Note: The application shown in this video has the [BERT Transformer](https://github.com/sentimentapp/core/tree/main/transformer) model integrated rather than the project's original [CNN-LSTM](https://github.com/sentimentapp/core/tree/main/cnn-lstm). The model being used in this video is not necessarily the app's final model because it was primarily created for learning and experimentation purposes. It is also important to note that the journal entry examples used in this video were cherry-picked to make sure the demo showed correct classification. In reality, the model being used in the video was only able to achieve a measly 46% accuracy on the validation dataset due to issues with the data that it was trained on.
+    - Note: The application shown in this video has the [BERT Transformer](https://github.com/sentimentapp/core/tree/main/transformer) model integrated rather than the project's original [CNN-LSTM](https://github.com/sentimentapp/core/tree/main/cnn-lstm). The model being used in this video is not necessarily the app's final model, as it was primarily created for learning and experimentation purposes. It is also important to note that the journal entry examples used in this video were cherry-picked to make sure the demo showed correct classification. In reality, the model being used in the video was only able to achieve a measly 46% accuracy on the validation dataset due to issues with the dataset that it was trained on.
 
 ### ML Models
 - [Repository with Different Experimental Models](https://github.com/sentimentapp/core)
